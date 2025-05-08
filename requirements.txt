@@ -10,6 +10,7 @@ langchain
 tiktoken
 langchain-openai
 langchain-community
+langchain-anthropic
 # Environment + logging (optional but useful)
 python-dotenv
 rich

@@ -1,6 +1,6 @@
 from langchain.agents.initialize import initialize_agent
 from langchain.agents import Tool
-from langchain_openai import ChatOpenAI
+from langchain_anthropic import ChatAnthropic
 from langchain.agents.agent_types import AgentType
 from apart_scrapper import get_avito_flats
 from dotenv import load_dotenv
@@ -24,11 +24,11 @@ tools = [
     )
 ]
 
-# Use ChatGPT model with key from environment
-llm = ChatOpenAI(
+# Use Claude 3 Sonnet model from Anthropic
+llm = ChatAnthropic(
     temperature=0,
-    model_name="gpt-3.5-turbo",
-    openai_api_key=os.getenv("OPENAI_API_KEY")
+    model="claude-3-sonnet-20240229",
+    anthropic_api_key=os.getenv("ANTHROPIC_API_KEY")
 )
 
 # Initialize agent with ReAct style
@@ -44,5 +44,5 @@ if __name__ == "__main__":
         print("\nAI Agent Response:\n")
         print(response)
     except Exception as e:
-        print("\n⚠️ Error during OpenAI agent execution:")
-        print(str(e))   
+        print("\n⚠️ Error during Claude agent execution:")
+        print(str(e))
