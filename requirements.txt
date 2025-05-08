@@ -1,0 +1,15 @@
+# Scraping
+playwright
+beautifulsoup4
+lxml
+requests
+
+# Agent / LLM framework
+openai
+langchain
+tiktoken
+langchain-openai
+langchain-community
+# Environment + logging (optional but useful)
+python-dotenv
+rich
