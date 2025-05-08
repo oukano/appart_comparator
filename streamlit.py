@@ -12,7 +12,16 @@ if st.button("Find Flats") and query:
     with st.spinner("Searching..."):
         try:
             result = agent.run(query)
-            st.success("Results found:")
-            st.text(result)
+            if not result:
+                st.info("No listings found.")
+            else:
+                st.success("Results found:")
+                for line in result.split("\n"):
+                    if line.strip() == "":
+                        continue
+                    if "http" in line:
+                        st.markdown(f"[🔗 View Listing]({line})")
+                    else:
+                        st.markdown(f"**{line}**")
         except Exception as e:
-            st.error(f"Error: {e}")
+            st.error(f"⚠️ Error: {e}")
