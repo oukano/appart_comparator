@@ -1,5 +1,5 @@
 import streamlit as st
-from apart_scrapper import agent  # make sure agent is initialized in its module
+from agent import agent  # make sure agent is initialized in its module
 
 st.set_page_config(page_title="Moroccan Flat Finder", layout="wide")
 
