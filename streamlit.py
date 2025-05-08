@@ -12,6 +12,7 @@ if st.button("Find Flats") and query:
     with st.spinner("Searching..."):
         try:
             result = agent.run(query)
+            print(result)
             st.success("Results found:")
             st.text(result)
         except Exception as e:
