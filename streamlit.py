@@ -16,12 +16,14 @@ if st.button("Find Flats") and query:
                 st.info("No listings found.")
             else:
                 st.success("Results found:")
-                for line in result.split("\n"):
-                    if line.strip() == "":
-                        continue
-                    if "http" in line:
-                        st.markdown(f"[🔗 View Listing]({line})")
-                    else:
-                        st.markdown(f"**{line}**")
+                flats = result.split("\n")
+                for i in range(0, len(flats), 2):
+                    info_line = flats[i].strip() if i < len(flats) else ""
+                    link_line = flats[i + 1].strip() if i + 1 < len(flats) else ""
+                    if info_line and link_line.startswith("http"):
+                        st.markdown(f"**{info_line}**\n\n[🔗 View Listing]({link_line})")
+                    elif info_line:
+                        st.markdown(f"**{info_line}**")
         except Exception as e:
             st.error(f"⚠️ Error: {e}")
+
