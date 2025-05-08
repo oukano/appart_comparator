@@ -6,7 +6,6 @@ from apart_scrapper import get_avito_flats
 from dotenv import load_dotenv
 import re
 import os
-import streamlit as st
 
 # Load environment variables from .env file
 
@@ -33,7 +32,7 @@ tools = [
 llm = ChatOpenAI(
     temperature=0,
     model_name="gpt-3.5-turbo",
-    openai_api_key=st.secrets["OPENAI_API_KEY"]
+    openai_api_key=os.getenv("OPENAI_API_KEY")
 )
 
 # Initialize agent with ReAct style
